@@ -23,9 +23,10 @@ data = np.loadtxt(filename,skiprows = 32,delimiter=",")
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
 stress=data[:,3]
 strain=data[:,7]
-plt.plot(stress,strain)
+stress_positive=stress*-1
+strain_positive=strain*-1
+plt.plot(stress_positive,strain_positive)
 plt.show()
-
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
