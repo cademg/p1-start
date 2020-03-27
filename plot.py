@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
-data = np.loadtxt(filename,skiprows = 32,delimiter=",",usecols=[3,7])
+filename = "raw-data/Sp15_245L_sect-001_group-1_glass.raw"        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
+data = np.loadtxt(filename,skiprows = 32,delimiter=",")
 # Attempts to load filename into local variable data.
 
 ## Part 0
@@ -21,7 +21,9 @@ data = np.loadtxt(filename,skiprows = 32,delimiter=",",usecols=[3,7])
 # plot raw-data/Sp15_245L_sect-001_group-1_glass.raw
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
-plt.plot(data[:,0],data[:,3])
+stress=data[:,3]
+strain=data[:,7]
+plt.plot(stress,strain)
 plt.show()
 
 ## Part 2
