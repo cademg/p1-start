@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-filename = "raw-data/Sp15_245L_sect-001_group-1_glass.raw"        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
+filename = "raw-data/Sp15_245L_sect-001_group-1_ultem.raw"        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data = np.loadtxt(filename,skiprows = 32,delimiter=",")
 # Attempts to load filename into local variable data.
 
@@ -27,10 +27,12 @@ stress_positive=stress*-1
 strain_positive=strain*-1
 plt.plot(stress_positive,strain_positive)
 plt.show()
+
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
 
+#part 1 code works for other files in raw-data/
 
 ## Part 3
 # Use linear regression to calculate the slope of the linear part of
