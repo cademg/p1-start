@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys
 
-filename = "raw-data/Sp15_245L_sect-001_group-1_ultem.raw"        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
+filename = sys.argv[1]        # Stores ARG1 in filename, as in: $ python plot.py ARG1 ARG2 
 data = np.loadtxt(filename,skiprows = 32,delimiter=",")
 # Attempts to load filename into local variable data.
 
@@ -21,11 +21,15 @@ data = np.loadtxt(filename,skiprows = 32,delimiter=",")
 # plot raw-data/Sp15_245L_sect-001_group-1_glass.raw
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
+Glabel= filename
 stress=data[:,3]
 strain=data[:,7]
 stress_positive=stress*-1
 strain_positive=strain*-1
-plt.plot(stress_positive,strain_positive)
+plt.plot(strain_positive,stress_positive, color="r", linestyle="-", label=Glabel)
+plt.xlabel("Strain (Ext %)")
+plt.ylabel("Stress (MPa)")
+plt.legend(loc="best")
 plt.show()
 
 ## Part 2
