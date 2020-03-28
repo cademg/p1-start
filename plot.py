@@ -31,7 +31,7 @@ plt.plot(strain_positive,stress_positive, color="r", linestyle="-")
 plt.xlabel("Strain (Ext %)")
 plt.ylabel("Stress (MPa)")
 plt.title(filename)
-plt.show()
+
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
@@ -44,6 +44,15 @@ plt.show()
 # the stress-strain data. Plot your line against the data to make 
 # sure it makes sense! Use the slope of this line to calculate and print
 # the Young's modulus (with units!)
+
+ab = np.linspace(min(strain_positive), max(strain_positive))
+de = np.polyfit(strain_positive, stress_positive, 1)
+re = ab*de[0]+de[1]
+plt.plot(ab, re, "k--", label="linear fit")
+plt.legend(loc="best")
+plt.savefig(filename + " .png")
+plt.show()
+print("young's modulus = ", de[0], " MPa")
 
 
 ## Part 4
